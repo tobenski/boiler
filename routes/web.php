@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [TestController::class, 'index']);
+Route::get('/', [TestController::class, 'index'])->name('home');
+Route::get('/send', [TestController::class, 'sendMail']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
