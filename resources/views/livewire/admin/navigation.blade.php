@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
                         {{ __('Settings') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.page.index')" :active="request()->routeIs('admin.page.*')">
+                        {{ __('Pages') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -67,6 +70,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
                 {{ __('Settings') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.page.index')" :active="request()->routeIs('admin.page.*')">
+                {{ __('Pages') }}
             </x-responsive-nav-link>
         </div>
 

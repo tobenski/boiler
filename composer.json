@@ -9,15 +9,18 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "artesaos/seotools": "^0.20.0",
         "fideloper/proxy": "^4.4",
         "flyhjaelp/laravel-eloquent-orderable": "^1.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "league/flysystem-aws-s3-v3": "~1.0",
         "livewire/livewire": "^2.3",
         "php-ffmpeg/php-ffmpeg": "^0.17.0",
         "spatie/laravel-medialibrary": "^9.0.0",
+        "spatie/laravel-medialibrary-pro": "^1.0.0",
         "spatie/laravel-settings": "^1.0",
         "spatie/laravel-sluggable": "^2.6"
     },
@@ -30,6 +33,12 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.spatie.be"
+        }
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",

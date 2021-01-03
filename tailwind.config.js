@@ -39,6 +39,7 @@ module.exports = {
     variants: {
         extend: {
             opacity: ['disabled'],
+            letterSpacing: ['hover', 'focus'],
         },
     },
 

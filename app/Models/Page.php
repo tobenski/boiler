@@ -10,8 +10,10 @@ use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Page extends Model implements HasMedia, OrderableInterface
 {
@@ -29,6 +31,7 @@ class Page extends Model implements HasMedia, OrderableInterface
         'slug',
         'description',
         'short_description',
+        'keywords',
         'header_1',
         'header_2',
         'content_1',
@@ -46,12 +49,23 @@ class Page extends Model implements HasMedia, OrderableInterface
         $this->addMediaCollection('page')
             ->useDisk('s3')
             ->singleFile()
-            ->withResponsiveImages();
+            ->withResponsiveImages()
+            ->registerMediaConversions(function (Media $media) {
+                $this->addMediaConversion('preview')
+                     ->width(500)
+                     ->height(500);
+             });
 
         $this->addMediaCollection('album')
-            ->useDisk('s3')
-            ->onlyKeepLatest(5)
-            ->withResponsiveImages();
+             ->useDisk('s3')
+             ->onlyKeepLatest(5)
+             ->withResponsiveImages()
+             ->registerMediaConversions(function (Media $media) {
+                $this->addMediaConversion('preview')
+                     ->width(500)
+                     ->height(500);
+             });
+
 
         $this->addMediaCollection('video-xs')
             ->useDisk('s3')

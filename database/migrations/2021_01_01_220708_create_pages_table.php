@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('slug');
             $table->text('description')->nullable();
             $table->string('short_description')->nullable();
+            $table->string('keywords')->nullable();
 
             $table->string('header_1')->nullable();
             $table->string('header_2')->nullable();
